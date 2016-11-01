@@ -1,0 +1,6 @@
+---
+dummy:
+
+mds_containerized_deployment: true
+
+collectl_args: "-sC -i 1"
