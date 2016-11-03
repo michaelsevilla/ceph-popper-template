@@ -1,0 +1,3 @@
+---
+cluster: ceph
+client_containerized_deployment: true

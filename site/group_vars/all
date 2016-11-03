@@ -5,18 +5,23 @@ fsid: "e9570dd8-03ad-45f0-8a74-ec9b3bb7095f"
 docker: true
 install_docker: false
 
-ceph_docker_username: <DOCKER USR>
-ceph_docker_imagename: <DOCKER IMG>
-ceph_docker_image_tag: <DOCKER VER>
-ceph_mon_docker_username: <DOCKER USR>
-ceph_mon_docker_imagename: <DOCKER IMG>
-ceph_mon_docker_image_tag: <DOCKER VER>
-ceph_osd_docker_username: <DOCKER USR>
-ceph_osd_docker_imagename: <DOCKER IMG>
-ceph_osd_docker_image_tag: <DOCKER VER>
-ceph_mds_docker_username: <DOCKER USR>
-ceph_mds_docker_imagename: <DOCKER IMG>
-ceph_mds_docker_image_tag: <DOCKER VER>
+ceph_docker_username: piha.soe.ucsc.edu:5000/ceph
+ceph_docker_imagename: daemon
+ceph_docker_image_tag: master
+ceph_mon_docker_username: piha.soe.ucsc.edu:5000/ceph
+ceph_mon_docker_imagename: daemon
+ceph_mon_docker_image_tag: master
+ceph_osd_docker_username: piha.soe.ucsc.edu:5000/ceph
+ceph_osd_docker_imagename: daemon
+ceph_osd_docker_image_tag: master
+ceph_mds_docker_username: piha.soe.ucsc.edu:5000/ceph
+ceph_mds_docker_imagename: daemon
+ceph_mds_docker_image_tag: master
+ceph_client_docker_username: piha.soe.ucsc.edu:5000/ceph
+ceph_client_docker_imagename: daemon
+ceph_client_docker_image_tag: master
+
+
 
 monitor_interface: eth1
 ceph_mon_docker_interface: eth1

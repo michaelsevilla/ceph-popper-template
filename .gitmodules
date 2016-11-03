@@ -1,6 +1,0 @@
-[submodule "roles/ceph-ansible"]
-	path = roles/ceph-ansible
-	url = https://github.com/michaelsevilla/ceph-ansible.git
-[submodule "roles/srl-ansible"]
-	path = roles/srl-ansible
-	url = https://github.com/systemslab/srl-roles.git
