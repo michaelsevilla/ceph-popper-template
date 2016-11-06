@@ -21,6 +21,3 @@
   become: True
   roles:
   - ceph-client
-
-- include: set_ceph_pgs.yml
-- include: wait_ceph_start.yml

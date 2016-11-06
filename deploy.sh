@@ -5,11 +5,14 @@ set -ex
 # setup the docker command
 RUN="docker run -it --rm --net host -v $HOME/.ssh:/root/.ssh -w /root"
 ANSIBLE="michaelsevilla/ansible --forks 50 --skip-tags package-install,with_pkg"
+CEPH_ANSIBLE="$RUN -v `pwd`/site/roles/ceph-ansible:/root $ANSIBLE"
+SRL_ANSIBLE="$RUN -v `pwd`/site:/root $ANSIBLE"
 
 # move configuration files
-cp site/* roles/ceph-ansible || true
+cp site/* site/roles/ceph-ansible || true
 cp -r site/group_vars site/roles/ceph-ansible/
 
 # cleanup and start ceph
-$RUN -v `pwd`/site:/root $ANSIBLE cleanup.yml
-$RUN -v `pwd`/site/roles/ceph-ansible:/root $ANSIBLE ceph.yml
+$SRL_ANSIBLE cleanup.yml
+$CEPH_ANSIBLE ceph.yml
+$SRL_ANSIBLE ceph_pgs.yml ceph_monitor.yml ceph_wait.yml

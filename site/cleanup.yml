@@ -33,7 +33,7 @@
     with_items: 
     - "{{ results.stdout_lines }}"
 
-- hosts: mons, osds, mdss, clients0, clients1, clients2, clients3, clients4, clients5
+- hosts: mons, osds, mdss, clients
   become: True
   tasks:
   - name: decimate all containers

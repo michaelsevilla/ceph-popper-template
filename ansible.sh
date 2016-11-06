@@ -7,9 +7,8 @@ fi
 
 set -ex
 # setup the docker command
-
-RUN="docker run -it --rm --net host -v $HOME/.ssh:/root/.ssh -w /root --entrypoint=$1"
-ANSIBLE="michaelsevilla/ansible --forks 50 --skip-tags package-install,with_pkg"
+RUN="docker run -it --rm --net host -v $HOME/.ssh:/root/.ssh -w /root --entrypoint=ansible"
+ANSIBLE="michaelsevilla/ansible"
 
 # cleanup and start ceph
-$RUN -v `pwd`:/root $ANSIBLE $@
+$RUN -v `pwd`/site:/root $ANSIBLE $@
