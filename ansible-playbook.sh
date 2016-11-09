@@ -5,10 +5,10 @@ if [ -z $1 ]; then
   exit 1
 fi
 
-set -e
+set -ex
 # setup the docker command
-RUN="docker run -it --rm --net host -v $HOME/.ssh:/root/.ssh -w /root --entrypoint=/usr/bin/ansible"
+RUN="docker run -it --rm --net host -v $HOME/.ssh:/root/.ssh -w /root/site"
 ANSIBLE="michaelsevilla/ansible"
 
 # cleanup and start ceph
-$RUN -v `pwd`/site:/root $ANSIBLE "$@"
+$RUN -v `pwd`:/root $ANSIBLE $@
