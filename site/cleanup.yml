@@ -33,7 +33,7 @@
     with_items: 
     - "{{ results.stdout_lines }}"
 
-- hosts: mons, osds, mdss, clients
+- hosts:  mons, osds, mdss
   become: True
   tasks:
   - name: decimate all containers
@@ -44,10 +44,6 @@
   become: True
   roles:
   - role: cleanup
-    images:
-    - michaelsevilla/graphite
-    - michaelsevilla/collectl
-    - michaelsevilla/mdtest
     delete:
     - /etc/ceph/
     - /var/lib/ceph
