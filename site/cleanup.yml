@@ -33,11 +33,13 @@
     with_items: 
     - "{{ results.stdout_lines }}"
 
-- hosts:  mons, osds, mdss
+- hosts:  mons, osds, mdss, clients
   become: True
   tasks:
   - name: decimate all containers
-    shell: docker ps -aq | xargs docker rm -f
+    shell: docker ps -aq | xargs docker stop
+    ignore_errors: True
+  - shell: docker ps -aq | xargs docker rm
     ignore_errors: True
 
 - hosts: all
@@ -58,3 +60,12 @@
   - name: disk zap again
     command: sgdisk --zap-all --clear --mbrtogpt -g -- {{ item }}
     with_items: ceph_osd_docker_devices
+
+- hosts: graphite
+  tasks:
+  - shell: docker stop graphite
+    ignore_errors: True
+  - shell: docker rm graphite
+    ignore_errors: True
+
+
